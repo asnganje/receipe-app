@@ -69,3 +69,5 @@ gem "dotenv-rails", groups: [ :development, :test ]
 gem "tailwindcss-ruby", "~> 4.1"
 
 gem "inline_svg"
+
+gem 'devise'
