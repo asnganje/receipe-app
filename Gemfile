@@ -70,4 +70,4 @@ gem "tailwindcss-ruby", "~> 4.1"
 
 gem "inline_svg"
 
-gem 'devise'
+gem "devise"
