@@ -14,7 +14,7 @@
     <div class="hidden md:block cursor-pointer">
       <%= inline_svg_tag("notify.svg")%>
     </div>
-    <div>
+    <div data-action="click->close#profileCardToggle">
       <%= inline_svg_tag("user.svg", class:"cursor-pointer")%>
       <%= render "dashboard/profile_card"%>
     </div>
