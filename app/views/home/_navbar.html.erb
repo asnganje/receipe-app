@@ -1,6 +1,8 @@
   <nav class="flex items-center justify-between mb-8">
     <h1 class="text-4xl uppercase font-extrabold text-gray-900 hover:italic">
-      <%= link_to "Logo"%>
+      <%= link_to root_path do%>
+        <%= inline_svg_tag("recipe.svg", class:"cursor-pointer size-10 rounded-lg")%>
+      <%end%>
     <h1>
     <div class="flex gap-6">
       <% if signed_in? %>
