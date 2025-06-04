@@ -16,15 +16,6 @@
     </div>
     <div>
       <%= inline_svg_tag("user.svg", class:"cursor-pointer")%>
-      <div class="absolute right-0 mt-5 text-gray-200 bg-gray-600 p-5">
-        <ul>
-          <li>
-            <%=link_to "Profile", edit_user_registration_path, class:"cursor-pointer" %>
-          </li>
-          <li class="mt-5">
-            <%=link_to "Logout", destroy_user_session_path, data:{turbo_method: :delete}, class:"cursor-pointer" %>
-          </li>
-        <ul>
-      </div>
+      <%= render "dashboard/profile_card"%>
     </div>
   </nav>
