@@ -1,0 +1,21 @@
+<nav class="relative flex items-center justify-between bg-gray-700 p-5 text-gray-200">
+    <div class="hidden md:block">
+      <%= link_to root_path do %>
+        <%= inline_svg_tag("recipe.svg", class:"size-10 cursor-pointer rounded-lg")%>
+      <%end%>
+    </div>
+    <div class="relative flex items-center justify-between cursor-pointer h-10 text-gray-950">
+      <input type="text"
+        class="bg-gray-200 outline-none border p-2 rounded-md"
+        placeholder="Enter search term..."
+      />
+      <%= inline_svg_tag("search.svg", class:"absolute right-1")%>
+    </div>
+    <div class="hidden md:block cursor-pointer">
+      <%= inline_svg_tag("notify.svg")%>
+    </div>
+    <div data-action="click->close#profileCardToggle">
+      <%= inline_svg_tag("user.svg", class:"cursor-pointer")%>
+      <%= render "dashboard/profile_card"%>
+    </div>
+  </nav>

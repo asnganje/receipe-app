@@ -1,6 +1,8 @@
   <nav class="flex items-center justify-between mb-8">
     <h1 class="text-4xl uppercase font-extrabold text-gray-900 hover:italic">
-      <%= link_to "Logo"%>
+      <%= link_to root_path do%>
+        <%= inline_svg_tag("recipe.svg", class:"cursor-pointer size-10 rounded-lg")%>
+      <%end%>
     <h1>
     <div class="flex gap-6">
       <% if signed_in? %>
@@ -10,7 +12,7 @@
           <%end%>
         </div>
         <div class="bg-gray-800 p-2 rounded-md capitalize font-bold text-gray-200 hover:bg-gray-600">
-          <%= link_to "Dashboard" %>
+          <%= link_to "Dashboard", dashboard_index_path %>
         <div>
       <%else%>
         <div class="bg-orange-500 p-2 rounded-md capitalize font-bold text-gray-200 hover:bg-orange-600">
