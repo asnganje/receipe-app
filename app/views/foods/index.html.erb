@@ -3,8 +3,8 @@
     <%= button_to "Add Food", new_food_path, method: :get, data: {turbo: true, turbo_frame: :modal},
     class:"bg-blue-500 p-2 rounded-md cursor-pointer" %>
   </div>
-  <div class="flex justify-center items-center">
-    <table class="bg-gray-600 rounded-md w-[80%]">
+  <div class="flex justify-center items-center overflow-x-auto">
+    <table class="bg-gray-600 rounded-md w-full md:w-[80%]">
       <thead>
         <tr class="text-left uppercase border-b border-blue-500">
           <th class="px-4 py-3">Food</th>
