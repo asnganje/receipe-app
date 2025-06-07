@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
-  static targets = ["name", "profileCard"]
+  static targets = ["name", "profileCard", "sidebar"]
   connect() {
     if(this.hasNameTarget){
       this.hide()
@@ -13,5 +13,8 @@ export default class extends Controller {
   }
   profileCardToggle() {
     this.profileCardTarget.classList.toggle("hidden")
+  }
+  sidebarToggle(){
+    this.sidebarTarget.classList.toggle("hidden")
   }
 }
