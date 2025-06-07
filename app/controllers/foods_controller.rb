@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   layout "admin"
-  before_action :set_food, only: [:destroy]
+  before_action :set_food, only: [ :destroy ]
 
   def index
     @foods=Food.all
@@ -10,14 +10,14 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Food.create(food_params) 
+    @food = Food.create(food_params)
     if @food.save
       respond_to do |format|
-        format.html {redirect_to foods_url, notice: "Food added"}
+        format.html { redirect_to foods_url, notice: "Food added" }
       end
     else
       respond_to do |format|
-        format.html {redirect_to foods_url, alert:@food.errors.full_messages[0]}
+        format.html { redirect_to foods_url, alert: @food.errors.full_messages[0] }
       end
     end
   end
@@ -25,11 +25,11 @@ class FoodsController < ApplicationController
   def destroy
     if @food.destroy
       respond_to do |format|
-        format.html {redirect_to foods_url, notice: "Food deleted!"}
+        format.html { redirect_to foods_url, notice: "Food deleted!" }
       end
     else
       respond_to do |format|
-        format.html {redirect_to foods_url, alert: @food.errors.full_messages[0]}
+        format.html { redirect_to foods_url, alert: @food.errors.full_messages[0] }
       end
     end
   end
