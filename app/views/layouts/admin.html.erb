@@ -24,8 +24,11 @@
 
   <body>
     <%= render "shared/flash"%>
-    <main class="">
+    <div data-controller="close" class="bg-gray-800 min-h-screen px-5 py-4">
+  <%= render "dashboard/dash_nav"%>
+  <div class="flex min-h-[85vh]">
+      <%= render "dashboard/sidebar"%>
       <%= yield %>
-    </main>
+  </div>
   </body>
 </html>

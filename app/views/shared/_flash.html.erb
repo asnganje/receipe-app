@@ -1,0 +1,15 @@
+    <div data-controller="close">
+      <% if notice.present? %>
+        <p data-close-target="name" class="absolute top-5 h-8 flex items-center justify-between right-75 w-1/2 bg-green-600 px-4 font-semibold text-gray-200 rounded-md"><%= notice %>
+          <span data-action="click->close#hide" class="cursor-pointer">
+            <%=inline_svg_tag("close.svg")%>
+          </span>
+        </p>
+      <% elsif alert.present? %>
+        <p data-close-target="name" class="absolute top-5 h-8 flex items-center justify-between right-75 w-1/2 bg-red-600 px-4 font-semibold text-gray-200 rounded-md"><%= alert %>
+          <span data-action="click->close#hide" class="cursor-pointer">
+            <%=inline_svg_tag("close.svg")%>
+          </span>
+        </p>
+      <% end %>
+    </div>
