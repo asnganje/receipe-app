@@ -29,6 +29,7 @@
   <div class="flex min-h-[85vh]">
       <%= render "dashboard/sidebar"%>
       <%= yield %>
+      <%=turbo_frame_tag :modal%>
   </div>
   </body>
 </html>

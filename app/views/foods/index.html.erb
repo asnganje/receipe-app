@@ -1,3 +1,4 @@
 <div class="flex justify-end w-full p-2 text-gray-200">
-  <%= button_to "Add Food", new_food_path, class:"bg-blue-500 p-2 rounded-md cursor-pointer"%>
+  <%= button_to "Add Food", new_food_path, method: :get, data: {turbo: true, turbo_frame: :modal},
+  class:"bg-blue-500 p-2 rounded-md cursor-pointer" %>
 </div>
