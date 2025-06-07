@@ -1,6 +1,9 @@
 <div data-controller="close" class="bg-gray-800 min-h-screen px-5 py-4">
   <%= render "dashboard/dash_nav"%>
-  <main class="text-gray-200">
-    This is the main dashboard page!
-  </main>
+  <div class="flex min-h-[85vh]">
+      <%= render "dashboard/sidebar"%>
+    <main class="text-gray-200">
+      This is the main dashboard page!
+    </main>
+  </div>
 </div>
