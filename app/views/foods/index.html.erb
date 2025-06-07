@@ -1,4 +1,30 @@
-<div class="flex justify-end w-full p-2 text-gray-200">
-  <%= button_to "Add Food", new_food_path, method: :get, data: {turbo: true, turbo_frame: :modal},
-  class:"bg-blue-500 p-2 rounded-md cursor-pointer" %>
+<div class="flex flex-col w-full text-gray-200">
+  <div class="flex justify-end my-4">
+    <%= button_to "Add Food", new_food_path, method: :get, data: {turbo: true, turbo_frame: :modal},
+    class:"bg-blue-500 p-2 rounded-md cursor-pointer" %>
+  </div>
+  <div class="flex justify-center items-center">
+    <table class="bg-gray-600 rounded-md w-[80%]">
+      <thead>
+        <tr class="text-left uppercase border-b border-blue-500">
+          <th class="px-4 py-3">Food</th>
+          <th class="px-4 py-3">Measurement Unit</th>
+          <th class="px-4 py-3">Unit Price</th>
+          <th class="px-4 py-3">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%@foods.each do |food|%>
+          <tr>
+            <td class="px-4 py-3"><%= food.name %></td>
+            <td class="px-4 py-3"><%= food.measurement_unit %></td>
+            <td class="px-4 py-3"><%= food.price %></td>
+            <td class="px-4 py-3">
+              <%= button_to "Delete", food_path(food), method: :delete, class:"bg-red-500 p-2 cursor-pointer rounded-md"%>
+            </td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
 </div>

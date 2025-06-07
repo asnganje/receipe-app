@@ -2,7 +2,7 @@
   <div class="fixed inset-0 bg-black/80"></div>
   <div class="fixed inset-0 bg-transparent flex items-center justify-center">
     <div class="relative flex items-center justify-center w-96 z-50 bg-gray-400 p-4 rounded-md">
-      <%= form_with model: Food.new do |f|%>
+      <%= form_with model: Food.new, data: {turbo: false} do |f|%>
         <div class="mb-4">
           <%= f.label :name, class:"block mb-2 text-gray-950" %>
           <%= f.text_field :name,
@@ -13,7 +13,7 @@
         </div>
         <div class="mb-4">
           <%= f.label :measurement_unit, class:"block mb-2 text-gray-950" %>
-          <%= f.number_field :measurement_unit,
+          <%= f.text_field :measurement_unit,
             autofocus: true,
             autocomplete: "measurement_unit",
             class: "w-full px-3 py-2 border text-gray-100 rounded-lg bg-gray-600 outline-none"
