@@ -1,9 +1,12 @@
 class RecipesController < ApplicationController
   layout "admin"
-  before_action :set_recipe, only: [:destroy]
+  before_action :set_recipe, only: [:destroy, :show]
 
   def index
     @recipes = Recipe.all
+  end
+
+  def show
   end
 
   def new
