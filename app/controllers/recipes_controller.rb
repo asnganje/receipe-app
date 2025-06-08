@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.create(recipe_params)
+    @recipe = current_user.recipes.create(recipe_params)
     if @recipe.save
       respond_to do |format|
         format.html {redirect_to recipes_url, notice:"Recipe added!"}
