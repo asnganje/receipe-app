@@ -1,6 +1,6 @@
 class InventoriesController < ApplicationController
   layout "admin"
-  before_action :set_inventory, only: [:show, :destroy]
+  before_action :set_inventory, only: [ :show, :destroy ]
   def index
     @inventories=Inventory.all
   end
@@ -15,11 +15,11 @@ class InventoriesController < ApplicationController
     @inventory = current_user.inventories.create(inventory_params)
     if @inventory.save
       respond_to do |format|
-        format.html {redirect_to inventories_url, notice: "Inventory added"}
+        format.html { redirect_to inventories_url, notice: "Inventory added" }
       end
     else
       respond_to do |format|
-        format.html {redirect_to inventories_url, alert: @inventory.errors.full_messages}
+        format.html { redirect_to inventories_url, alert: @inventory.errors.full_messages }
       end
     end
   end
@@ -27,11 +27,11 @@ class InventoriesController < ApplicationController
   def destroy
     if @inventory.destroy
       respond_to do |format|
-        format.html {redirect_to inventories_url, notice: "Inventory deleted"}
+        format.html { redirect_to inventories_url, notice: "Inventory deleted" }
       end
     else
       respond_to do |format|
-        format.html {redirect_to inventories_url, alert: @inventory.errors.full_messages[0]}
+        format.html { redirect_to inventories_url, alert: @inventory.errors.full_messages[0] }
       end
     end
   end
