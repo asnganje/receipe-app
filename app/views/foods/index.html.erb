@@ -18,7 +18,7 @@
           <tr>
             <td class="px-4 py-3"><%= food.name %></td>
             <td class="px-4 py-3"><%= food.measurement_unit %></td>
-            <td class="px-4 py-3"><%= food.price %></td>
+            <td class="px-4 py-3">$<%= food.price %></td>
             <td class="px-4 py-3">
               <%= button_to "Delete", food_path(food), method: :delete, class:"bg-red-500 p-2 cursor-pointer rounded-md"%>
             </td>
