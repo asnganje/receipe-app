@@ -1,3 +1,23 @@
-<div class="p-4 text-gray-100">
-  Inventory List
+<div class="flex flex-col w-full text-gray-200">
+  <div class="flex justify-end my-4">
+    <%= button_to "Add Inventory", new_inventory_path, method: :get, data: {turbo: true, turbo_frame: :modal},
+    class:"bg-blue-500 p-2 rounded-md cursor-pointer" %>
+  </div>
+  <div class="flex flex-col justify-center items-center">
+    <% @inventories.each do |inventory|%>
+      <div class="flex gap-10 border border-gray-400 shadow-md m-4 p-5 rounded-md">
+        <div class="flex flex-col items-center justify-center gap-5 w-1/5">
+          <p class="font-semibold text-xl">
+            <%=link_to inventory.name, inventory_path(inventory) %>
+          </p>
+          <%=button_to "REMOVE", inventory_path(inventory), method: :delete, class:"text-blue-400 uppercase cursor-pointer"%>
+        </div>
+        <div class=" w-4/5">
+          <p>
+            <%= inventory.description%>
+          <p>
+        </div>
+      </div>
+    <%end%>
+  </div>
 </div>
