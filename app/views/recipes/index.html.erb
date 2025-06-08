@@ -8,7 +8,7 @@
       <div class="flex gap-10 border border-gray-400 shadow-md m-4 p-5 rounded-md">
         <div class="flex flex-col items-center justify-center gap-5 w-1/5">
           <p class="font-semibold text-xl">
-            <%=link_to recipe.name, recipe_path(path) %>
+            <%=link_to recipe.name, recipe_path(recipe) %>
           </p>
           <%=button_to "REMOVE", recipe_path(recipe), method: :delete, class:"text-blue-400 uppercase cursor-pointer"%>
         </div>
