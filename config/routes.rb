@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :recipes, only: [ :index ]
+  resources :inventories do
+    resources :inventory_foods, only: [:new, :create]
+  end
   resources :foods
   resources :dashboard, only: [ :index ]
   devise_for :users
