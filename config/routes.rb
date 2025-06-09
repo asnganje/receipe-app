@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :recipes, only: [ :index ]
+  resources :recipes do
+    resources :recipe_foods
+  end
   resources :inventories do
     resources :inventory_foods
   end
