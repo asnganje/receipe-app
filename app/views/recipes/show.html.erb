@@ -14,7 +14,7 @@
   </div>
   <div class="flex justify-between items-center w-[80%]">
     <div>
-      <%= link_to "Generate shopping list", data:{turbo: true, turbo_frame: :modal}, class:"cursor-pointer bg-blue-500 rounded-md p-1 hover:bg-blue-400" %>
+      <%= link_to "Generate shopping list", new_shopping_list_path, data:{turbo: true, turbo_frame: :modal}, class:"cursor-pointer bg-blue-500 rounded-md p-1 hover:bg-blue-400" %>
     </div>
     <div>
       <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe), class:"cursor-pointer bg-blue-500 rounded-md p-1 hover:bg-blue-400" %>

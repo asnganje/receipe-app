@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :shopping_list, only: [ :new ]
+  post "shopping_lists/generate", to: "shopping_lists#generate", as: :generate_shopping_list
   resources :recipes do
     resources :recipe_foods
   end

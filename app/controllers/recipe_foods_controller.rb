@@ -1,4 +1,5 @@
 class RecipeFoodsController < ApplicationController
+  layout "admin"
   before_action :set_recipe, only: [ :new, :create, :destroy ]
   before_action :set_recipe_food, only: [ :destroy ]
 
