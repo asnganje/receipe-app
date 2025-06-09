@@ -1,0 +1,30 @@
+<%= turbo_frame_tag :modal do %>
+  <div class="fixed inset-0 bg-black/80"></div>
+  <div class="fixed inset-0 bg-transparent flex items-center justify-center">
+    <div class="relative flex flex-col items-center justify-center w-96 z-50 bg-gray-400 p-4 rounded-md">
+      <h2 class="font-bold">Generate Shopping List</h2>
+      <div class="w-full flex items-start my-10">
+        <p>Choose an inventory to use</p>
+      </div>
+      <%= form_with url: generate_shopping_list_path, method: :post, local: true do |f|%>
+      <div class="flex items-center justify-between gap-10">
+        <div class="mb-4">
+          <%= f.label :inventory_id, "Select inventory", class:"block mb-2 text-gray-950" %>
+          <%= f.collection_select :inventory_id, @inventories, :id, :name %>
+        </div>
+        <div class="flex items-center justify-center mb-2 my-2">
+          <%= f.submit "Generate",
+            class:"bg-orange-500 hover:bg-orange-600 text-gray-200 font-semibold lg:text-xl p-2 rounded-md cursor-pointer w-full",
+            data: {turbo_frame: "_top"}
+            %>
+        </div>
+      </div>
+        <div class="absolute top-2 right-2">
+          <%=link_to recipes_path do %>
+            <%= inline_svg_tag("close.svg", class:"text-gray-800 size-8")%>
+          <%end%>
+        </div>
+      <%end%>
+    </div>
+  <div>
+<%end%>
