@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "shopping_list/index"
   resources :recipes do
     resources :recipe_foods
   end
