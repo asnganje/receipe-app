@@ -1,34 +1,36 @@
-<div class="flex flex-col items-center mt-10 text-gray-200 w-full">
+<div class="flex flex-col text-xs md:text-base items-center mt-10 text-gray-200 w-full">
   <p class="font-semibold text-xl">
     <%=@inventory.name%>
   </p>
-  <div class="flex justify-end w-full md:w-[80%]">
+  <div class="flex justify-end md:w-[80%]">
     <%= link_to "Add Food", new_inventory_inventory_food_path(@inventory), data: {turbo: true, turbo_frame: :modal}, class:"cursor-pointer bg-blue-500 rounded-md p-1 hover:bg-blue-400" %>
   </div>
-  <div class="border-b-2 border-blue-400 my-2 w-full md:w-[80%]"></div>
-  <table class="bg-gray-600 rounded-md w-full md:w-[80%]">
-    <thead>
-      <tr class="text-left uppercase border-b border-blue-500">
-        <th class="px-4 py-3">Food</th>
-        <th class="px-4 py-3">Quantity</th>
-        <th class="px-4 py-3">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%@inventory.inventory_foods.each do |inventory_food|%>
-      <tr>
-        <td class="px-4 py-3"><%=inventory_food.food.name%></td>
-        <td class="px-4 py-3">
-          <%=inventory_food.quantity%>
-          <span class="italic">
-            <%=inventory_food.food.measurement_unit%>
-          </span>
-        </td>
-        <td class="px-4 py-3">
-          <%=button_to "Delete", inventory_inventory_food_path(@inventory, inventory_food), method: :delete, class:"text-blue-400 underline cursor-pointer"%>
-        </td>
-      </tr>
-      <%end%>
-    </tbody>
-  </table>
+  <div class="border-b-2 border-blue-400 my-2 md:w-[80%]"></div>
+  <div class="w-full md:w-[80%] p-2 bg-gray-600 rounded-md">
+    <table class="w-full">
+      <thead>
+        <tr class="text-left capitalize md:uppercase border-b border-blue-500">
+          <th class="sm:px-4 sm:py-3">Food</th>
+          <th class="sm:px-4 sm:py-3">Quantity</th>
+          <th class="sm:px-4 sm:py-3">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%@inventory.inventory_foods.each do |inventory_food|%>
+        <tr class="my-1">
+          <td class="px-4 py-3"><%=inventory_food.food.name%></td>
+          <td class="px-4 py-3">
+            <%=inventory_food.quantity%>
+            <span class="italic">
+              <%=inventory_food.food.measurement_unit%>
+            </span>
+          </td>
+          <td class="px-4 py-3">
+            <%=button_to "Delete", inventory_inventory_food_path(@inventory, inventory_food), method: :delete, class:"text-blue-400 underline cursor-pointer"%>
+          </td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
 </div>

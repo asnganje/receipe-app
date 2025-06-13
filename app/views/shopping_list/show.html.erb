@@ -1,27 +1,29 @@
-<div class="flex flex-col items-center justify-center text-gray-200 p-2 w-full">
+<div class="flex flex-col items-center text-xs md:text-base justify-center text-gray-200 p-2 w-full">
   <p class="font-bold text-2xl my-10">Your Shopping List</p>
   <div class="flex gap-5">
     <p>Amount of food items to buy: <%=@missing_items.size%></p>
     <p>Total value of food needed: <%= number_to_currency(@missing_items.sum { |item| item[:total_value].to_f })%></p>
   </div>
   <div class="border-b-2 border-gray-950 my-2 w-full md:w-[80%]"></div>
-    <table class="bg-gray-600 rounded-md w-full md:w-[80%]">
-      <thead>
-        <tr class="text-left uppercase border-b border-blue-500">
-          <th class="px-4 py-3">Food</th>
-          <th class="px-4 py-3">Quantity</th>
-          <th class="px-4 py-3">Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @missing_items.each do |item| %>
-          <tr>
-            <td class="px-4 py-3"><%=  item.food.name %></td>
-            <td class="px-4 py-3"><%= item[:needed] %></td>
-            <td class="px-4 py-3"><%= number_to_currency(item[:total_value]) %></td>      
-          <tr>
-        <% end %>
-      </tbody>
-    </table>
+    <div class="bg-gray-600 rounded-md px-2 w-full md:w-[80%]">
+      <table class="w-full">
+        <thead>
+          <tr class="text-left capitalize md:uppercase border-b border-blue-500">
+            <th class="sm:px-4 sm:py-3">Food</th>
+            <th class="sm:px-4 sm:py-3">Quantity</th>
+            <th class="sm:px-4 sm:py-3">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @missing_items.each do |item| %>
+            <tr>
+              <td class="px-4 py-3"><%=  item.food.name %></td>
+              <td class="px-4 py-3"><%= item[:needed] %></td>
+              <td class="px-4 py-3"><%= number_to_currency(item[:total_value]) %></td>      
+            <tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

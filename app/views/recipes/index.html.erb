@@ -1,4 +1,4 @@
-<div class="flex flex-col w-full text-gray-200">
+<div class="flex flex-col w-full text-xs md:text-base text-gray-200">
   <div class="flex items-center px-10 <%= @recipes.size > 0 ? "justify-end" : "justify-between" %> my-4">
     <% if @recipes.size < 1 %>
       <p class="font-bold text-xl text-yellow-300">No recipes added yet!</p>
@@ -8,15 +8,15 @@
   </div>
   <div class="flex flex-col justify-center items-center">
     <% @recipes.each do |recipe|%>
-      <div class="flex gap-10 border border-gray-400 shadow-md m-4 p-5 rounded-md">
-        <div class="flex flex-col items-center justify-center gap-5 w-1/5">
-          <p class="font-semibold text-xl">
+      <div class="flex gap-10 border border-gray-400 shadow-md w-[90%] my-4 mx-auto p-5 rounded-md">
+        <div class="flex flex-col items-center justify-center gap-5">
+          <p class="font-semibold text-sm md:text-xl text-blue-300 underline">
             <%=link_to recipe.name, recipe_path(recipe) %>
           </p>
           <%=button_to "REMOVE", recipe_path(recipe), method: :delete, class:"text-blue-400 uppercase cursor-pointer"%>
         </div>
-        <div class=" w-4/5">
-          <p>
+        <div class="">
+          <p class="text-xs md:text-base">
             <%= recipe.description%>
           <p>
         </div>

@@ -1,8 +1,8 @@
-<div class="flex flex-col items-center mt-10 text-gray-200 w-full">
+<div class="flex flex-col text-xs md:text-base items-center mt-10 px-5 text-gray-200 w-full">
   <p class="font-semibold text-xl">
     <%=@recipe.name%>
   </p>
-  <div class="flex justify-between w-[80%] mx-auto mb-5 mt-10">
+  <div class="flex justify-between w-full md:w-[80%] mx-auto mb-5 mt-10">
     <div class="flex flex-col gap-4">
       <p>Preparation duration: <%= @recipe.preparation_duration%> (HH:MM)</p>
       <p>Cooking duration: <%=@recipe.cooking_duration%> (HH:MM)</p>
@@ -12,37 +12,35 @@
       <p>Public</p>
     </div>
   </div>
-  <div class="flex justify-between items-center w-[80%]">
-    <div>
-      <%= link_to "Generate shopping list", new_shopping_list_path(recipe_id: @recipe.id), data:{turbo: true, turbo_frame: :modal}, class:"cursor-pointer bg-blue-500 rounded-md p-1 hover:bg-blue-400" %>
-    </div>
-    <div>
-      <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe), class:"cursor-pointer bg-blue-500 rounded-md p-1 hover:bg-blue-400" %>
-    </div>
+  <div class="flex justify-between gap-5 items-center w-full md:w-[80%]">
+      <%= link_to "Generate shopping list", new_shopping_list_path(recipe_id: @recipe.id), data:{turbo: true, turbo_frame: :modal}, class:"cursor-pointer bg-blue-500 rounded-md text-xs md:text-base p-1 hover:bg-blue-400" %>
+      <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe), class:"cursor-pointer bg-blue-500 rounded-md p-1 hover:bg-blue-400 text-xs md:text-base" %>
   </div>
   <div class="border-b-2 border-gray-950 my-2 w-full md:w-[80%]"></div>
-  <table class="bg-gray-600 rounded-md w-full md:w-[80%]">
-    <thead>
-      <tr class="text-left uppercase border-b border-blue-500">
-        <th class="px-4 py-3">Food</th>
-        <th class="px-4 py-3">Quantity</th>
-        <th class="px-4 py-3">Value</th>
-        <th class="px-4 py-3">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @recipe.recipe_foods.each do |recipe_food| %>
-        <tr>
-          <td class="px-4 py-3"><%=recipe_food.food.name %></td>
-          <td class="px-4 py-3"><%=recipe_food.quantity %></td>
-          <td class="px-4 py-3"><%=recipe_food.quantity*recipe_food.food.price%></td>
-          <td class="flex gap-5 capitalize px-4 py-3">
-            <%=link_to "Modify", edit_recipe_recipe_food_path(@recipe), class:"text-blue-400 underline cursor-pointer"%>
-            <%= button_to "Remove", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, class:"text-blue-400 underline cursor-pointer"%>
-          </td>
-    
-        <tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="w-full md:w-[80%] bg-gray-600 rounded-md px-2">
+    <table class="w-full">
+      <thead>
+        <tr class="text-left capitalize md:uppercase border-b border-blue-500">
+          <th class="sm:px-4 sm:py-3">Food</th>
+          <th class="sm:px-4 sm:py-3">Quantity</th>
+          <th class="sm:px-4 sm:py-3">Value</th>
+          <th class="sm:px-4 sm:py-3">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipe.recipe_foods.each do |recipe_food| %>
+          <tr>
+            <td class="sm:px-4 sm:py-3"><%=recipe_food.food.name %></td>
+            <td class="sm:px-4 sm:py-3"><%=recipe_food.quantity %></td>
+            <td class="sm:px-4 sm:py-3"><%=recipe_food.quantity*recipe_food.food.price%></td>
+            <td class="flex gap-5 capitalize sm:px-4 sm:py-3">
+              <%=link_to "Modify", edit_recipe_recipe_food_path(@recipe), class:"text-blue-400 underline cursor-pointer"%>
+              <%= button_to "Remove", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, class:"text-blue-400 underline cursor-pointer"%>
+            </td>
+      
+          <tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

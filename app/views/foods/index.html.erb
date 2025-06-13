@@ -6,28 +6,30 @@
     <%= button_to "Add Food", new_food_path, method: :get, data: {turbo: true, turbo_frame: :modal},
     class:"bg-blue-500 p-2 rounded-md cursor-pointer" %>
   </div>
-  <div class="flex justify-center items-center overflow-x-auto">
-    <table class="bg-gray-600 rounded-md w-full md:w-[80%]">
-      <thead>
-        <tr class="text-left uppercase border-b border-blue-500">
-          <th class="px-4 py-3">Food</th>
-          <th class="px-4 py-3">Measurement Unit</th>
-          <th class="px-4 py-3">Unit Price</th>
-          <th class="px-4 py-3">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%@foods.each do |food|%>
-          <tr>
-            <td class="px-4 py-3"><%= food.name %></td>
-            <td class="px-4 py-3"><%= food.measurement_unit %></td>
-            <td class="px-4 py-3">$<%= food.price %></td>
-            <td class="px-4 py-3">
-              <%= button_to "Delete", food_path(food), method: :delete, class:"bg-red-500 p-2 cursor-pointer rounded-md"%>
-            </td>
+  <div class="w-full">
+    <div class="flex justify-center items-center bg-gray-600 rounded-md p-2 w-full md:w-[80%] mx-auto overflow-x-auto">
+      <table class="rounded-md text-xs p-4 sm:text-sm md:text-base w-full">
+        <thead>
+          <tr class="text-left capitalize md:uppercase border-b border-blue-500">
+            <th class="sm:px-4 sm:py-3">Food</th>
+            <th class="sm:px-4 sm:py-3">Measurement Unit</th>
+            <th class="sm:px-4 sm:py-3">Unit Price</th>
+            <th class="sm:px-4 sm:py-3">Actions</th>
           </tr>
-        <%end%>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <%@foods.each do |food|%>
+            <tr class="my-1 sm:my-0">
+              <td class="sm:px-4 sm:py-3"><%= food.name %></td>
+              <td class="sm:px-4 sm:py-3"><%= food.measurement_unit %></td>
+              <td class="sm:px-4 sm:py-3">$<%= food.price %></td>
+              <td class="sm:px-4 sm:py-3">
+                <%= button_to "Delete", food_path(food), method: :delete, class:"bg-red-500 p-1 my-2 md:px-4 md:my-0 cursor-pointer rounded-md"%>
+              </td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

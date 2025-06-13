@@ -8,14 +8,14 @@
   </div>
   <div class="flex flex-col justify-center items-center">
     <% @inventories.each do |inventory|%>
-      <div class="flex gap-10 border border-gray-400 shadow-md m-4 p-5 rounded-md">
-        <div class="flex flex-col items-center justify-center gap-5 w-1/5">
-          <p class="font-semibold text-xl">
+      <div class="flex flex-col md:flex-row text-xs sm:text-base overflow-x-hidden gap-10 border border-gray-400 w-[80%] shadow-md m-4 p-5 px-10 rounded-md">
+        <div class="flex flex-col items-center justify-center gap-5">
+          <p class="font-semibold text-sm md:text-xl text-blue-300 underline">
             <%=link_to inventory.name, inventory_path(inventory) %>
           </p>
           <%=button_to "REMOVE", inventory_path(inventory), method: :delete, class:"text-blue-400 uppercase cursor-pointer"%>
         </div>
-        <div class=" w-4/5">
+        <div class="">
           <p>
             <%= inventory.description%>
           <p>
