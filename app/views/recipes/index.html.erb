@@ -1,5 +1,8 @@
 <div class="flex flex-col w-full text-gray-200">
-  <div class="flex justify-end my-4">
+  <div class="flex items-center px-10 <%= @recipes.size > 0 ? "justify-end" : "justify-between" %> my-4">
+    <% if @recipes.size < 1 %>
+      <p class="font-bold text-xl text-yellow-300">No recipes added yet!</p>
+    <%end%>
     <%= button_to "Add Recipe", new_recipe_path, method: :get, data: {turbo: true, turbo_frame: :modal},
     class:"bg-blue-500 p-2 rounded-md cursor-pointer" %>
   </div>

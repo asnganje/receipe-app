@@ -1,6 +1,7 @@
 class Recipe < ApplicationRecord
   belongs_to :user
   has_many :recipe_foods
+  has_many :shopping_lists, dependent: :destroy
   has_many :foods, through: :recipe_foods
 
   def preparation_duration
