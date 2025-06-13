@@ -1,5 +1,6 @@
 class InventoriesController < ApplicationController
   layout "admin"
+  before_action :authenticate_user!
   before_action :set_inventory, only: [ :show, :destroy ]
   def index
     @inventories=Inventory.all

@@ -6,7 +6,8 @@
       <div class="w-full flex items-start my-10">
         <p>Choose an inventory to use</p>
       </div>
-      <%= form_with url: generate_shopping_list_path, method: :post, local: true do |f|%>
+      <%= form_with url: shopping_list_index_path, method: :post, local: true do |f|%>
+      <%= hidden_field_tag :recipe_id, @recipe.id%>
       <div class="flex items-center justify-between gap-10">
         <div class="mb-4">
           <%= f.label :inventory_id, "Select inventory", class:"block mb-2 text-gray-950" %>
