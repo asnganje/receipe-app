@@ -34,5 +34,11 @@
     <div class="text-center space-y-4">
       <%= render "devise/shared/links" %>
     </div>
+    <div class="flex items-center justify-start w-full h-5 my-3">
+      <%=link_to root_path, class:"flex items-center justify-center gap-1 hover:bg-gray-300 hover:rounded-md hover:py-1 hover:px-3" do %>
+        <%=inline_svg_tag("arrow-left.svg", class:"w-5 h-5")%>
+        Back
+      <%end%>
+    </div>
   </div>
 </div>

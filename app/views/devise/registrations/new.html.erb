@@ -1,5 +1,5 @@
 <div class="min-h-screen bg-gray-200 flex items-center justify-center">
-  <div class="mx-8 md:mx-0 md:min-w-md py-5 bg-gray-100 shadow-lg rounded-lg px-10">
+  <div class="mx-8 md:mx-0 md:min-w-md py-5 my-10 bg-gray-100 shadow-lg rounded-lg px-10">
     <h2 class="font-bold mb-6 text-gray-800 text-center text-2xl">Sign up</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -48,6 +48,12 @@
     <% end %>
     <div class="text-center">
       <%= render "devise/shared/links" %>
+    </div>
+    <div class="flex items-center justify-start w-full h-5 my-3">
+      <%=link_to root_path, class:"flex items-center justify-center gap-1 hover:bg-gray-300 hover:rounded-md hover:py-1 hover:px-3" do %>
+        <%=inline_svg_tag("arrow-left.svg", class:"w-5 h-5")%>
+        Back
+      <%end%>
     </div>
   </div>
 </div>
